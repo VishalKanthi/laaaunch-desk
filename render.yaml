@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: launch-desk-backend
+    env: node
+    buildCommand: npm install && npm run build && npm run bundle:server
+    startCommand: node build/server/index.js
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: GROQ_API_KEY
+        sync: false
