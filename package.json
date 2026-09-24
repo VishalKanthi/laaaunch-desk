@@ -1,0 +1,38 @@
+{
+  "name": "launch-desk",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev:server\" \"npm:dev:web\"",
+    "bundle:server": "tsc --noEmit false --outDir build",
+    "dev:server": "npm run bundle:server && node build/server/index.js",
+    "dev:web": "vite",
+    "build": "tsc --noEmit && vite build",
+    "start": "npm run build && npm run bundle:server && node build/server/index.js",
+    "test": "vitest run",
+    "verify:stream": "npm run bundle:server && node build/scripts/verify-stream.js"
+  },
+  "dependencies": {
+    "@openai/agents": "latest",
+    "cors": "latest",
+    "dotenv": "latest",
+    "express": "latest",
+    "react": "latest",
+    "react-dom": "latest",
+    "zod": "latest"
+  },
+  "devDependencies": {
+    "@types/cors": "latest",
+    "@types/express": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@vitejs/plugin-react": "latest",
+    "concurrently": "latest",
+    "tsx": "latest",
+    "typescript": "latest",
+    "vite": "latest",
+    "vitest": "latest"
+  }
+}
